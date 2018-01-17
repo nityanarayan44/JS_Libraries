@@ -5,19 +5,97 @@
  * @Description: JavaScript Lib for General JavaScript operations
  */
 
-// Set use ristrictions
-use "strict";
+(function(window){
 
-// Global Instance
-var nngjs = {
+      // Set use ristrictions
+      'use strict';
 
-  // [Page Scroll] General Operation
-      scrollDownToBottom: function() {
-        window.scrollTo(0,document.body.scrollHeight);
-      },
-      scrollDownToTop: function() {
-        window.scrollTo(0,0);
-      }
+      // Global Instance
+      // --- [Main Code Container] ---
+      var nngjs = {
 
-  //
-};
+                  /*
+                   *======================================
+                   * [Page Scroll] General Operation
+                   *======================================
+                   */
+                      // To Bottom of the page
+                      scrollDownToBottom: function() {
+                        window.scrollTo(0, document.body.scrollHeight);
+                      },
+                      // To Top of the page
+                      scrollDownToTop: function() {
+                        window.scrollTo(0, 0);
+                      },
+
+                  /*
+                   *======================================
+                   * Finding of Target / Element by XPaths
+                   *======================================
+                   */
+
+                    // Get the element that has exact string inside of it.
+                    getElementThatHasString: function(txt) {
+                      return eval('$x("//*[text()=\''+txt+'\']")');
+                    },
+
+                    // Get the element that just contains string inside of it.
+                    getElementThatContainsString: function(txt) {
+                      return eval('$x("//*[contains(text(), \''+txt+'\')]")');
+                    },
+
+                    // CSS Selector [Venilla]
+                    getElementWithCssSelector: function(selector){
+                      return $$(selector);
+                    },
+
+                  /*
+                   *======================================
+                   * Accessing the Target / Element Info
+                   *======================================
+                   */
+                    getElementCountWithTag: function(tagName){
+                      return window.document.getElementsByTagName(tagName).length;
+                    },
+
+                    // CSS Selector [Venilla]
+                    getElementCountWithCssSelector: function(selector){
+                      return $$(selector).length;
+                    },
+                    // CSS Selector [Adding . for class]
+                    getElementCountWithClass: function(selector){
+                      return $$('.'+selector).length;
+                    },
+                    // CSS Selector [Adding # for id]
+                    getElementCountWithId: function(selector){
+                      return $$('#'+selector).length;
+                    },
+
+                  /*
+                   *======================================
+                   * Operations on Targets / Elements
+                   *======================================
+                   */
+
+                   // Click on first element, that matches with the criteria.
+                   clickOnElementThatHasString: function(txt){
+                     (this.getElementThatHasString(txt))[0].click();
+                   },
+                   clickOnElementWithCssSelector: function(selector){
+                     (this.getElementWithCssSelector(selector))[0].click();
+                   }
+
+        };/*EOnngjs code*/
+
+        /*
+         *=========================================================
+         * [At Last]
+         * We need that our library is globally accesible,
+         * then we save in the window.
+         *=========================================================
+         */
+        if(typeof(window.nngjs) === 'undefined'){
+            window.nngjs = nngjs;
+        }
+
+})(window);
