@@ -77,12 +77,25 @@
                    *======================================
                    */
 
-                   // Click on first element, that matches with the criteria.
                    clickOnElementThatHasString: function(txt){
                      (this.getElementThatHasString(txt))[0].click();
                    },
+                   clickOnElementThatContainsString: function(txt){
+                     (this.getElementThatContainsString(txt))[0].click();
+                   },
                    clickOnElementWithCssSelector: function(selector){
                      (this.getElementWithCssSelector(selector))[0].click();
+                   },
+
+                   // Click on nth element, that matches with the criteria.
+                   clickOnElementThatHasString: function(txt, index){
+                     (this.getElementThatHasString(txt))[index].click();
+                   },
+                   clickOnElementThatContainsString: function(txt, index){
+                     (this.getElementThatContainsString(txt))[index].click();
+                   },
+                   clickOnElementWithCssSelector: function(selector, index){
+                     (this.getElementWithCssSelector(selector))[index].click();
                    }
 
         };/*EOnngjs code*/
