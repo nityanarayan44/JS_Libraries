@@ -14,6 +14,10 @@
       // --- [Main Code Container] ---
       var nngjs = {
 
+                  //--- [Global Vars Values] ---
+                      highlightStyle : 'background-color: yellow; outline: 1px solid rgb(136, 255, 136);',
+                      unHighlightStyle : '',
+            
                   /*
                    *======================================
                    * [Page Scroll] General Operation
@@ -34,6 +38,10 @@
                    *======================================
                    */
 
+                   // Get Element with direct xpath
+                   getElementWithXPath: function(xpath) {
+                     return eval('$x("'+xpath+'")');
+                   },
                     // Get the element that has exact string inside of it.
                     getElementThatHasString: function(txt) {
                       return eval('$x("//*[text()=\''+txt+'\']")');
@@ -77,6 +85,7 @@
                    *======================================
                    */
 
+                   // Click on first element, that matches with the criteria.
                    clickOnElementThatHasString: function(txt){
                      (this.getElementThatHasString(txt))[0].click();
                    },
@@ -96,10 +105,31 @@
                    },
                    clickOnElementWithCssSelector: function(selector, index){
                      (this.getElementWithCssSelector(selector))[index].click();
+                   },
+
+                   // Highlight the Element(s).
+                   highlightElementWithCSSSelector: function(selector){
+                     (this.getElementWithCssSelector(selector)).map(function(element){
+                       element.setAttribute('style', this.highlightStyle);
+                     });
+                   },
+                   unHighlightElementWithCSSSelector: function(selector){
+                     (this.getElementWithCssSelector(selector)).map(function(element){
+                       element.setAttribute('style', this.unHighlightStyle);
+                     });
+                   },
+                   highlightElementWithXPath: function(xpath){
+                     (this.getElementWithXPath(xpath)).map(function(element){
+                       element.setAttribute('style', this.highlightStyle);
+                     });
+                   },
+                   unHighlightElementWithXPath: function(xpath){
+                     (this.getElementWithXPath(xpath)).map(function(element){
+                       element.setAttribute('style', this.unHighlightStyle);
+                     });
                    }
 
-        };/*EOnngjs code*/
-
+        };/*End_Of_nngjs code*/
         /*
          *=========================================================
          * [At Last]
