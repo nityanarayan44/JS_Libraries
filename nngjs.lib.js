@@ -17,6 +17,36 @@
                   //--- [Global Vars Values] ---
                       highlightStyle : 'background-color: yellow; outline: 1px solid rgb(136, 255, 136);',
                       unHighlightStyle : '',
+
+                      currentOngoingAjaxCallStatus : false,
+                  /**
+                   * =====================================
+                   * [Utils] AJAX Interceptor
+                   * =====================================
+                   */
+                      /* This will intercept any ajax call,
+                         and whenever any ajax call is active
+                         or complete it will update the ajaxCall var status.
+                         :: Although, User needs to register/call this function once,
+                         in order to Start intercepting AJAX.
+                      */
+                      interceptXHRCalls: function() {
+                        let xhr = XMLHttpRequest.prototype.open;
+                        // Insert the prototype method to monitor the ongoing ajax call.
+                        XMLHttpRequest.prototype.open = function(){
+                                this.currentOngoingAjaxCallStatus = true;
+                                console.log('Any Currnet OnGoing AJAX Call ' + this.currentOngoingAjaxCallStatus);
+                                this.addEventListener('load', function() {
+                                    this.currentOngoingAjaxCallStatus = false;
+                                    console.log('Any Currnet OnGoing AJAX Call ' + this.currentOngoingAjaxCallStatus);
+                                    //will always be 4 (ajax is completed successfully)
+                                    //console.log(this.readyState);
+                                    //whatever the response was
+                                    //console.log(this.responseText);
+                                });
+                                xhr.apply(this, arguments);
+                        };
+                      },
             
                   /*
                    *======================================
