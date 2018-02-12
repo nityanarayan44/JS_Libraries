@@ -61,6 +61,10 @@
                       scrollDownToTop: function() {
                         window.scrollTo(0, 0);
                       },
+                      // Reload the Page
+                      refreshPage: function(){
+                        window.location.href = window.location.href;
+                      },
 
                   /*
                    *======================================
