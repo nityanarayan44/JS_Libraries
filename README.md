@@ -1,6 +1,6 @@
 # JS_Libraries
-Libraries written for the JavaScript
-Achiev more by typing less.
+Libraries written for the JavaScript. <br/>
+(Achieve more by typing less)
 
 ### Lib for DOM Manupulation and Extendig Functionality
 It contains all the required useful methods to maupulate the dom
