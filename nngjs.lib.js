@@ -144,22 +144,22 @@
                    // Highlight the Element(s).
                    highlightElementWithCSSSelector: function(selector){
                      (this.getElementWithCssSelector(selector)).map(function(element){
-                       element.setAttribute('style', this.highlightStyle);
+                       element.setAttribute('style', nngjs.highlightStyle);
                      });
                    },
                    unHighlightElementWithCSSSelector: function(selector){
                      (this.getElementWithCssSelector(selector)).map(function(element){
-                       element.setAttribute('style', this.unHighlightStyle);
+                       element.setAttribute('style', nngjs.unHighlightStyle);
                      });
                    },
                    highlightElementWithXPath: function(xpath){
                      (this.getElementWithXPath(xpath)).map(function(element){
-                       element.setAttribute('style', this.highlightStyle);
+                       element.setAttribute('style', nngjs.highlightStyle);
                      });
                    },
                    unHighlightElementWithXPath: function(xpath){
                      (this.getElementWithXPath(xpath)).map(function(element){
-                       element.setAttribute('style', this.unHighlightStyle);
+                       element.setAttribute('style', nngjs.unHighlightStyle);
                      });
                    }
 
