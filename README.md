@@ -1,15 +1,16 @@
 # JS_Libraries
 Libraries written for the JavaScript
+Achiev more by typing less.
 
-# Functions for XPath generation
-It implements the 
-- Absolute XPath generation Algorithm
-- XPath Suggestion based on selective attributes
-- Robula Algorithm for XPath generation
+## Lib for DOM Manupulation and Extendig Functionality
+It contains all the required useful methods to maupulate the dom
+- getting Elements [Via CssSelector, XPaths]
+- action on Elements [Via CssSelector, XPaths]
+like: clicking, highlighting, counting, etc.
 
 # Usage API
-Import this lib, and it will return a namespace 'nngXPath'.
-Avaialble api are:
-- nngXPath.getAbsXPath(event) : here event is any registered event. For Example click event.
-- nngXpath.getXpathSuggestion(element)
-- nngXPath.getRobulaXPath(event)
+Import this lib (Either by just copying all the code into your web-console or via JavaScriptExecutor Class in Selenium or to your web application), and use the namespace <code>nngjs</code>
+Example:
+- nngjs.reloadPage(); // It will reload the page
+- nngjs.interceptXHRCalls(); // It will print the status for any ongoing Ajax calls
+- nngjs.getElementByClass("class1"); // It will return all the elements belongs to the provided class on the DOM at that moment
